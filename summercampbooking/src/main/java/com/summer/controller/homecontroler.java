@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/api")
+@RequestMapping("/api") //use this to get api and remove to get the web page on
 public class homecontroler {
 
 	@Autowired
@@ -42,3 +42,4 @@ public class homecontroler {
     }
     
 }
+
