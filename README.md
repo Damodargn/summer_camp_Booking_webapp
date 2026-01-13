@@ -1,241 +1,242 @@
-🏕️ Summer Camp Sports Enrollment Application
-📌 Project Overview
+# 🏆 Summer Camp Sports Enrollment Application
 
-The Summer Camp Sports Enrollment Application is a web-based system that allows parents/students to enroll in multiple sports activities offered during a summer camp.
-The application provides a clean user interface for enrollment and a robust backend REST API for handling data storage, validation, and retrieval.
+## 📌 Project Overview
 
-The system supports:
+The **Summer Camp Sports Enrollment Application** is a full‑stack web application that allows parents or students to enroll in multiple sports activities offered during a summer camp.
+The system supports **multiple sport selection**, session timing, and duration plans, with a clean UI and REST‑based backend.
 
-Multiple sports selection per student
+This project is built as part of an academic/assignment submission and follows proper backend–frontend separation, validations, and API‑based communication.
 
-Persistent data storage
+---
 
-RESTful APIs
+## 🧱 Tech Stack Used
 
-Frontend interaction using JavaScript fetch()
+### Backend
 
-🎯 Features
+* **Java (Spring Boot – PostMan APIs)**
+* **Spring MVC**
+* **Spring Data JPA**
+* **Json (JSON Serialization)**
 
-📝 Student enrollment with personal details
+### Database
 
-🏀 Multiple sports selection (checkbox-based)
+* **MySQL** (Free online database – e.g. freesqldatabase.com)
 
-⏰ Session timing selection (Morning / Evening)
+### Frontend
 
-📅 Duration-based enrollment
+* **HTML5**
+* **CSS3**
+* **Vanilla JavaScript (Fetch API)**
+* **JSP (View Rendering)**
 
-🔄 REST API integration
+### Tools
 
-🗄️ Persistent storage using MySQL
+* **Postman** – API testing
+* **GitHub** – Version control
+* **ChatGPT / Antigravity IDE** – Development assistance
 
-❌ Error handling & validation
+---
 
-🌐 Navigation between Home, Sports, and Enroll pages
+## ✨ Features
 
-🧱 Tech Stack Used
-Backend (Mandatory)
+* Enroll students into **multiple sports at once**
+* Clean and modern UI with navigation (Home / Sports / Enroll)
+* REST‑based backend APIs
+* JSON‑based communication
+* Input validation on frontend
+* Persistent storage using MySQL
+* Responsive design
 
-Java (Spring Boot – REST APIs)
+---
 
-Spring Web
+## 🗂️ Application Modules
 
-Spring Data JPA
+### 1️⃣ Home Page
 
-Hibernate
+* Introduction to summer camp
+* Highlights and benefits
+* Eligibility details
 
-Database
+*<img width="1919" height="905" alt="Screenshot 2026-01-13 115543" src="https://github.com/user-attachments/assets/4edeaed1-5bb6-46e5-9872-993045361443" />
+ 
+<img width="1907" height="900" alt="Screenshot 2026-01-13 115558" src="https://github.com/user-attachments/assets/5fd4e715-0166-4f66-9b49-6cfba0bfb7cd" />
 
-MySQL (Online Free DB – freesqldatabase.com)
+### 2️⃣ Sports Page
 
-Frontend
+* Displays available sports
+* Shows coach, fee, duration, and session details
+* 
+<img width="1900" height="915" alt="Screenshot 2026-01-13 115615" src="https://github.com/user-attachments/assets/b9ae2332-cc27-4dbc-aad8-0ecdd1a67d34" />
 
-HTML
+<img width="1919" height="913" alt="Screenshot 2026-01-13 115632" src="https://github.com/user-attachments/assets/38d70201-13dd-493e-8b7f-512bcc47abdd" />
 
-CSS
+<img width="1919" height="909" alt="Screenshot 2026-01-13 115655" src="https://github.com/user-attachments/assets/5b28aabe-811d-41b0-9a63-c73b3656178c" />
 
-JavaScript (Vanilla JS)
+### 3️⃣ Enrollment Page
 
-Tools
+* Student details (Name, Age, Email)
+* **Multiple sport selection (Checkbox based)**
+* Session timing (Morning / Evening)
+* Duration plan (4 or 8 weeks)
+* Enroll button with success message
 
-ChatGPT
+<img width="1919" height="913" alt="Screenshot 2026-01-13 115716" src="https://github.com/user-attachments/assets/2fb84713-256e-43e4-8b6c-d23ce32d5386" />
 
-Antigravity IDE
+---
 
-Postman (API Testing)
+## 🔌 API Documentation
 
-🗂️ Project Structure
-SummerCampEnrollment/
-│
-├── src/main/java/com/summer
-│   ├── controller
-│   │   ├── PageController.java
-│   │   └── ApiController.java
-│   ├── model
-│   │   └── Enrollment.java
-│   ├── repository
-│   │   └── EnrollmentRepository.java
-│   └── service
-│       └── EnrollmentService.java
-│
-├── src/main/webapp/WEB-INF/views
-│   └── home.jsp
-│
-├── src/main/resources
-│   └── application.properties
-│
-└── README.md
+<img width="1918" height="941" alt="Screenshot 2026-01-13 120040" src="https://github.com/user-attachments/assets/7aa012d0-b65a-4f5f-9201-e63fbcd89626" />
 
-📡 API Documentation
-1️⃣ Enroll Student
 
-Endpoint
+### Base URL
 
+```
+http://localhost:8080/api/
+```
+
+### ➤ Enroll Student
+
+**Endpoint:**
+
+```
 POST /api/enroll
+```
 
+**Request Body (JSON):**
 
-Request Body (JSON)
-
+```json
 {
-  "studentName": "John Doe",
+  "studentName": "Rahul",
   "age": 12,
-  "email": "john@example.com",
+  "email": "rahul@gmail.com",
   "sessionTiming": "Morning",
-  "durationWeeks": 4,
-  "sports": ["Football", "Cricket", "Swimming"]
+  "durationWeeks": 8,
+  "sports": ["Football", "Swimming", "Cricket"]
 }
+```
 
+**Response:**
 
-Response
-
+```json
 {
   "id": 1,
-  "studentName": "John Doe",
-  "age": 12,
-  "email": "john@example.com",
+  "studentName": "Rahul",
+  "sports": "Football,Swimming,Cricket",
   "sessionTiming": "Morning",
-  "durationWeeks": 4,
-  "sports": ["Football", "Cricket", "Swimming"]
+  "durationWeeks": 8
 }
+```
 
-2️⃣ Get All Enrollments
+---
 
-Endpoint
+### ➤ Get All Enrollments
 
+**Endpoint:**
+
+```
 GET /api/enrollments
+```
 
+**Response:**
 
-Response
-
+```json
 [
   {
     "id": 1,
-    "studentName": "John Doe",
-    "age": 12,
-    "email": "john@example.com",
-    "sessionTiming": "Morning",
-    "durationWeeks": 4,
-    "sports": ["Football", "Cricket"]
+    "studentName": "Rahul",
+    "sports": "Football,Swimming"
   }
 ]
+```
 
-🗄️ Database Schema
-Table: enrollments
-Column Name	Type	Description
-id	INT (PK)	Auto-increment primary key
-student_name	VARCHAR	Student full name
-age	INT	Student age
-email	VARCHAR	Email address
-session_timing	VARCHAR	Morning / Evening
-duration_weeks	INT	Enrollment duration
-sports	TEXT	Multiple sports (comma-separated or JSON)
-⚙️ application.properties (Sample)
-server.port=8080
+---
 
-spring.datasource.url=jdbc:mysql://<HOST>:<PORT>/<DB_NAME>
-spring.datasource.username=<USERNAME>
-spring.datasource.password=<PASSWORD>
+## 🗄️ Database Schema
 
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQLDialect
+### Table: `enrollments`
 
-spring.mvc.view.prefix=/WEB-INF/views/
-spring.mvc.view.suffix=.jsp
+| Column Name    | Type         | Description           |
+| -------------- | ------------ | --------------------- |
+| id             | INT (PK)     | Enrollment ID         |
+| student_name   | VARCHAR(100) | Student name          |
+| age            | INT          | Student age           |
+| email          | VARCHAR(100) | Email ID              |
+| sports         | TEXT         | Selected sports (CSV) |
+| session_timing | VARCHAR(50)  | Morning / Evening     |
+| duration_weeks | INT          | 4 or 8 weeks          |
 
-▶️ How to Run the Application
-Backend
+---
 
-Clone the repository
-
-git clone https://github.com/your-username/summer-camp-enrollment.git
+<img width="1908" height="954" alt="Screenshot 2026-01-13 121242" src="https://github.com/user-attachments/assets/4dfba9bf-d6dc-4961-bc22-5612025ac0e5" />
 
 
-Open project in IDE
+## ▶️ Steps to Run the Application
 
-Update application.properties with DB credentials
+### Backend (Spring Boot)
 
-Run Spring Boot application
+1. Clone the repository
 
-Server runs on:
+```bash
+git clone <your-github-repo-url>
+```
 
-http://localhost:8080
+2. Open the project in IntelliJ / Eclipse
+3. Update `application.properties` with MySQL credentials
+4. Run:
 
-Frontend
+```bash
+mvn spring-boot:run
+```
 
-Open browser and navigate to:
+5. Server runs at:
 
+```
 http://localhost:8080/home
+```
 
+---
 
-Use the Enroll section to submit data
+### Frontend (JSP)
 
-🧪 API Testing (Postman)
+1. Place JSP files under:
 
-Import API manually
+```
+src/main/webapp/WEB-INF/views/
+```
 
-Use /api/enroll for POST
+2. Access the app in browser:
 
-Use /api/enrollments for GET
+```
+http://localhost:8080/home#
+```
 
-📸 Screenshots
+---
 
-(Add screenshots here)
+## 🧪 Testing
 
-Home Page
+* API tested using **Postman**
+* Frontend tested via browser
+* 
+---
 
-Sports Selection
+## 🔐 Optional Enhancements (Future Scope)
 
-Enrollment Form
+* JWT Authentication
+* Admin Dashboard
+* Payment Gateway
+* Docker Containerization
+* React Frontend
 
-Postman API Response
+---
 
-🚀 Future Enhancements (Bonus)
+## 👨‍💻 Author
 
-JWT Authentication
-
-Admin Dashboard
-
-React / Angular frontend
-
-Dockerized deployment
-
-Email confirmation
-
-Payment integration
-
-👨‍💻 Author
-
-Damodar GN
+**Damodar GN**
 Summer Camp Sports Enrollment Application
 
-If you want, I can also:
+---
 
-✅ Create Postman collection
+## 📄 License
 
-✅ Generate ER diagram
-
-✅ Convert this to React
-
-✅ Add JWT authentication
-
-✅ Prepare submission-ready screenshots
+This project is for educational purposes only.
