@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/api") //use this to get api and remove to get the web page on
+@RequestMapping("/") 
 public class homecontroler {
 
 	@Autowired
@@ -30,16 +30,19 @@ public class homecontroler {
     }
 
     // SAVE ENROLLMENT
+	@ResponseBody
     @PostMapping("/enroll")
     public home enrollStudent(@RequestBody home enrollmentId) {
         return service.saveEnrollment(enrollmentId);
     }
 
     // VIEW ENROLLMENTS
-    @GetMapping("/enrollments")
+    @ResponseBody
+	@GetMapping("/enrollments")
     public List<home> getEnrollments() {
         return service.getAllEnrollments();
     }
     
 }
+
 
